@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dake.catering.module.member_info.mapper.MemberInfoMapper">
+
+    <sql id="whereCondition">
+        <where>
+            <if test="entity.id != null">
+                AND memberInfo.id = #{entity.id}
+            </if>
+            <if test="entity.registerStoreId != null">
+                AND memberInfo.register_store_id = #{entity.registerStoreId}
+            </if>
+            <if test="entity.phone != null and entity.phone != ''">
+                AND memberInfo.phone LIKE CONCAT('%', #{entity.phone}, '%')
+            </if>
+            <if test="entity.realName != null and entity.realName != ''">
+                AND memberInfo.real_name LIKE CONCAT('%', #{entity.realName}, '%')
+            </if>
+            <if test="entity.isVip != null">
+                AND memberInfo.is_vip = #{entity.isVip}
+            </if>
+            <if test="entity.status != null">
+                AND memberInfo.status = #{entity.status}
+            </if>
+            <if test="entity.storeName != null and entity.storeName != ''">
+                AND sysStore.store_name LIKE CONCAT('%', #{entity.storeName}, '%')
+            </if>
+        </where>
+    </sql>
+
+    <!-- 分页查询 -->
+    <select id="pageQuery" resultType="com.dake.catering.module.member_info.entity.MemberInfo">
+        SELECT memberInfo.*
+        , sysStore.store_name AS storeName
+        FROM member_info memberInfo
+        LEFT JOIN sys_store sysStore ON memberInfo.register_store_id = sysStore.id
+        <include refid="whereCondition"/>
+        ORDER BY memberInfo.create_time DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <!-- 查询总数 -->
+    <select id="countQuery" resultType="java.lang.Long">
+        SELECT COUNT(1)
+        FROM member_info memberInfo
+        LEFT JOIN sys_store sysStore ON memberInfo.register_store_id = sysStore.id
+        <include refid="whereCondition"/>
+    </select>
+
+    <!-- 列表查询（不分页） -->
+    <select id="listQuery" resultType="com.dake.catering.module.member_info.entity.MemberInfo">
+        SELECT memberInfo.*
+        , sysStore.store_name AS storeName
+        FROM member_info memberInfo
+        LEFT JOIN sys_store sysStore ON memberInfo.register_store_id = sysStore.id
+        <include refid="whereCondition"/>
+        ORDER BY memberInfo.create_time DESC
+    </select>
+
+    <!-- 根据ID查询 -->
+    <select id="getById" resultType="com.dake.catering.module.member_info.entity.MemberInfo">
+        SELECT memberInfo.*
+        , sysStore.store_name AS storeName
+        FROM member_info memberInfo
+        LEFT JOIN sys_store sysStore ON memberInfo.register_store_id = sysStore.id
+        WHERE memberInfo.id = #{id}
+    </select>
+
+</mapper>

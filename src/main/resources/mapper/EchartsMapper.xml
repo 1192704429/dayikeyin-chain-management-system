@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dake.catering.basic.mapper.EchartsMapper">
+
+    <select id="getOrderStatusAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT CASE order_status WHEN 1 THEN '待付款' WHEN 2 THEN '已付款' WHEN 3 THEN '已完成' WHEN 4 THEN '已取消' ELSE '未知' END AS name, COUNT(*) AS value FROM order_main WHERE 1=1 <if test="startTime != null and startTime != ''">AND create_time &gt;= #{startTime}</if> <if test="endTime != null and endTime != ''">AND create_time &lt;= #{endTime}</if> <if test="orderStatus != null and orderStatus != -1"><if test="orderStatus != null and orderStatus != -1">AND order_status = #{orderStatus}</if></if> GROUP BY order_status
+    </select>
+
+    <select id="getPayTypeAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT CASE pay_type WHEN 1 THEN '微信' WHEN 2 THEN '支付宝' WHEN 3 THEN '现金' WHEN 4 THEN '刷卡' ELSE '未知' END AS name, COUNT(*) AS value FROM order_main WHERE 1=1 <if test="startTime != null and startTime != ''">AND pay_time &gt;= #{startTime}</if> <if test="endTime != null and endTime != ''">AND pay_time &lt;= #{endTime}</if> <if test="payType != null and payType != -1"><if test="payType != null and payType != -1">AND pay_type = #{payType}</if></if> GROUP BY pay_type
+    </select>
+
+    <select id="getDailyOrderAmount" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT DATE_FORMAT(create_time, '%Y-%m-%d') AS name, SUM(actual_pay) AS value FROM order_main WHERE 1=1 <if test="startTime != null and startTime != ''">AND create_time &gt;= #{startTime}</if> <if test="endTime != null and endTime != ''">AND create_time &lt;= #{endTime}</if> GROUP BY DATE_FORMAT(create_time, '%Y-%m-%d') ORDER BY name
+    </select>
+
+    <select id="getUserRoleAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT CASE role_type WHEN 'admin' THEN '系统管理员' WHEN 'manager' THEN '店长' WHEN 'clerk' THEN '店员' ELSE '未知' END AS name, COUNT(*) AS value FROM user_info WHERE 1=1 <if test="status != null and status != -1"><if test="status != null and status != -1">AND status = #{status}</if></if> GROUP BY role_type
+    </select>
+
+    <select id="getStoreDishSaleAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT d.dish_name AS name, SUM(oi.quantity) AS value FROM order_item oi LEFT JOIN order_main om ON oi.order_id = om.id LEFT JOIN dish_info d ON oi.dish_id = d.id WHERE 1=1 <if test="storeId != null"><if test="storeId != null and storeId != -1">AND om.store_id = #{storeId}</if></if> <if test="startTime != null and startTime != ''">AND om.create_time &gt;= #{startTime}</if> <if test="endTime != null and endTime != ''">AND om.create_time &lt;= #{endTime}</if> GROUP BY d.dish_name
+    </select>
+
+    <select id="getStoreOrderStatusAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT CASE order_status WHEN 1 THEN '待付款' WHEN 2 THEN '已付款' WHEN 3 THEN '已完成' WHEN 4 THEN '已取消' ELSE '未知' END AS name, COUNT(*) AS value FROM order_main WHERE 1=1 <if test="storeId != null"><if test="storeId != null and storeId != -1">AND store_id = #{storeId}</if></if> <if test="startTime != null and startTime != ''">AND create_time &gt;= #{startTime}</if> <if test="endTime != null and endTime != ''">AND create_time &lt;= #{endTime}</if> GROUP BY order_status
+    </select>
+
+    <!-- 当前门店每日收入统计（按日期汇总订单实付金额） -->
+    <select id="getStoreDishStockAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT
+            DATE_FORMAT(create_time, '%Y-%m-%d') AS name,
+            SUM(actual_pay) AS value
+        FROM order_main
+        WHERE 1=1
+        <if test="storeId != null and storeId != -1">
+            AND store_id = #{storeId}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND create_time &gt;= #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND create_time &lt;= #{endTime}
+        </if>
+        GROUP BY DATE_FORMAT(create_time, '%Y-%m-%d')
+        ORDER BY name
+    </select>
+
+    <select id="getStoreMemberConsumeAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT m.real_name AS name, m.consume_amount AS value FROM member_info m WHERE 1=1 <if test="registerStoreId != null"><if test="registerStoreId != null and registerStoreId != -1">AND m.register_store_id = #{registerStoreId}</if></if> <if test="isVip != null and isVip != -1"><if test="isVip != null and isVip != -1">AND m.is_vip = #{isVip}</if></if> ORDER BY m.consume_amount DESC
+    </select>
+
+    <!-- 所有门店营业额统计（管理员查看） -->
+    <select id="getAllStoresRevenueAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT 
+            COALESCE(s.store_name, '未知门店') AS name,
+            COALESCE(SUM(om.actual_pay), 0) AS value
+        FROM sys_store s
+        LEFT JOIN order_main om ON s.id = om.store_id
+        WHERE 1=1
+        <if test="startTime != null and startTime != ''">
+            AND (om.create_time IS NULL OR om.create_time &gt;= #{startTime})
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND (om.create_time IS NULL OR om.create_time &lt;= #{endTime})
+        </if>
+        GROUP BY s.id, s.store_name
+        ORDER BY value DESC
+    </select>
+
+    <!-- 所有门店订单分布状态统计（管理员查看） -->
+    <select id="getAllStoresOrderStatusAnalysis" resultType="com.dake.catering.vo.EchartsDataVO">
+        SELECT 
+            CONCAT(COALESCE(s.store_name, '未知门店'), '-', 
+                   CASE om.order_status 
+                       WHEN 1 THEN '待付款' 
+                       WHEN 2 THEN '已付款' 
+                       WHEN 3 THEN '已完成' 
+                       WHEN 4 THEN '已取消' 
+                       ELSE '未知' 
+                   END) AS name,
+            COUNT(*) AS value
+        FROM sys_store s
+        LEFT JOIN order_main om ON s.id = om.store_id
+        WHERE 1=1
+        <if test="startTime != null and startTime != ''">
+            AND (om.create_time IS NULL OR om.create_time &gt;= #{startTime})
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND (om.create_time IS NULL OR om.create_time &lt;= #{endTime})
+        </if>
+        GROUP BY s.id, s.store_name, om.order_status
+        HAVING value > 0
+        ORDER BY s.store_name, om.order_status
+    </select>
+
+</mapper>
