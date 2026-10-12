@@ -17,7 +17,7 @@
 | 门店收银端 | 店员 |
 
 
-![功能模块图](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/azhou_promotion/img/module_structure/func_module_f5f6405f680f4aefbb13e08ba8a1cbee.png)
+![功能模块图](docs/images/01-func-module.png)
 
 
 ## 三、技术栈说明
@@ -48,59 +48,59 @@
 
 登录页：管理员输入登录信息，登录餐饮连锁后台系统
 
-![登录页：管理员输入登录信息，登录餐饮连锁后台系统](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/8bdf712a-205f-42da-83a4-946079241880.png)
+![登录页：管理员输入登录信息，登录餐饮连锁后台系统](docs/images/02-deng-lu.png)
 
 门店管理页：管理员查看并管理所有门店的基础信息
 
-![门店管理页：管理员查看并管理所有门店的基础信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/2fef04c2-cb29-47b6-88f1-864d8ed20f97.png)
+![门店管理页：管理员查看并管理所有门店的基础信息](docs/images/03-men-dian-guan-li.png)
 
 门店管理页：为指定门店分配可售卖的菜单与菜品
 
-![门店管理页：为指定门店分配可售卖的菜单与菜品](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/e3945b00-9d0f-4167-82a7-c8ed48bcd1b3.png)
+![门店管理页：为指定门店分配可售卖的菜单与菜品](docs/images/04-men-dian-guan-li.png)
 
 用户管理页：查看并管理系统内所有人员的账号信息
 
-![用户管理页：查看并管理系统内所有人员的账号信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/5fe8e24d-1d00-4b48-8542-cdda21dc679c.png)
+![用户管理页：查看并管理系统内所有人员的账号信息](docs/images/05-yong-hu-guan-li.png)
 
 用户管理页：查询系统用户信息，查看指定用户详情
 
-![用户管理页：查询系统用户信息，查看指定用户详情](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/177210e5-a55c-4b59-8702-e913299bf7e4.png)
+![用户管理页：查询系统用户信息，查看指定用户详情](docs/images/06-yong-hu-guan-li.png)
 
 菜品分类管理：管理菜品分类，支持增删改查操作
 
-![菜品分类管理：管理菜品分类，支持增删改查操作](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/e9c7bdd0-4a3b-4732-811f-59a3db32cce2.png)
+![菜品分类管理：管理菜品分类，支持增删改查操作](docs/images/07-cai-pin-fen-lei-guan-li.png)
 
 菜品管理：管理员查看并管理系统内的菜品信息
 
-![菜品管理：管理员查看并管理系统内的菜品信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/0f03d1f1-b2f4-4b86-830a-84e7dbb1dc14.png)
+![菜品管理：管理员查看并管理系统内的菜品信息](docs/images/08-cai-pin-guan-li.png)
 
 菜品管理：编辑修改菜品的基础信息
 
-![菜品管理：编辑修改菜品的基础信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/60d4b2d0-7ccc-4acc-80f7-e6f9a55d3504.png)
+![菜品管理：编辑修改菜品的基础信息](docs/images/09-cai-pin-guan-li.png)
 
 会员管理页：查询并管理餐饮系统的所有会员信息
 
-![会员管理页：查询并管理餐饮系统的所有会员信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/3885de43-e7e8-4845-81de-1e91e5dfb3d6.png)
+![会员管理页：查询并管理餐饮系统的所有会员信息](docs/images/10-hui-yuan-guan-li.png)
 
 原材料管理页：查看并管理系统内所有原材料的基础信息
 
-![原材料管理页：查看并管理系统内所有原材料的基础信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/1c2f4767-13c5-4c19-82ea-36186d613614.png)
+![原材料管理页：查看并管理系统内所有原材料的基础信息](docs/images/11-yuan-cai-liao-guan-li.png)
 
 门店库存管理：查看管理各门店的原材料库存信息
 
-![门店库存管理：查看管理各门店的原材料库存信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/1335a36a-5e4f-496c-83a7-4eab7f6507dc.png)
+![门店库存管理：查看管理各门店的原材料库存信息](docs/images/12-men-dian-ku-cun-guan-li.png)
 
 订单管理页：按条件查询管理系统内的所有餐饮订单
 
-![订单管理页：按条件查询管理系统内的所有餐饮订单](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/a900f231-f467-4281-8307-6fdca9e42d53.png)
+![订单管理页：按条件查询管理系统内的所有餐饮订单](docs/images/13-ding-dan-guan-li.png)
 
 订单管理页：查看所有订单，展示选中订单的详情
 
-![订单管理页：查看所有订单，展示选中订单的详情](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/0703c74d-c18e-45d5-89f6-e80e42a5c70c.png)
+![订单管理页：查看所有订单，展示选中订单的详情](docs/images/14-ding-dan-guan-li.png)
 
 统计分析页：统计展示各门店营业额与订单相关数据
 
-![统计分析页：统计展示各门店营业额与订单相关数据](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/d500cf3b-3f7f-4cf6-84b7-a64fa1e9db3d.png)
+![统计分析页：统计展示各门店营业额与订单相关数据](docs/images/15-tong-ji-fen-xi.png)
 
 
 ###### 门店管理端
@@ -121,35 +121,35 @@
 
 门店信息管理页：查看维护本门店的基础信息与营业状态
 
-![门店信息管理页：查看维护本门店的基础信息与营业状态](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/8ad88c73-1836-49c2-8bd6-28c0a472de37.png)
+![门店信息管理页：查看维护本门店的基础信息与营业状态](docs/images/16-men-dian-xin-xi-guan-li.png)
 
 门店人员管理页：店长查看和管理本店的人员信息
 
-![门店人员管理页：店长查看和管理本店的人员信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/34b941ff-8ca3-459b-820e-7cf9d28fa2c9.png)
+![门店人员管理页：店长查看和管理本店的人员信息](docs/images/17-men-dian-ren-yuan-guan-li.png)
 
 菜品管理页：店长查看并管理本店可售菜品信息
 
-![菜品管理页：店长查看并管理本店可售菜品信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/3bcde8bd-4120-4ff7-86d0-e6f8282c3c03.png)
+![菜品管理页：店长查看并管理本店可售菜品信息](docs/images/18-cai-pin-guan-li.png)
 
 库存管理页：管理查看本门店原材料库存信息
 
-![库存管理页：管理查看本门店原材料库存信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/6c971324-d5e5-4aaf-89f9-6fee12c207d1.png)
+![库存管理页：管理查看本门店原材料库存信息](docs/images/19-ku-cun-guan-li.png)
 
 订单管理页：店长查看并管理本店所有订单信息
 
-![订单管理页：店长查看并管理本店所有订单信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/2767d7ae-3240-4911-8a19-58ce6240e99f.png)
+![订单管理页：店长查看并管理本店所有订单信息](docs/images/20-ding-dan-guan-li.png)
 
 会员管理页：店长查看管理本店所有会员信息
 
-![会员管理页：店长查看管理本店所有会员信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/4b6cb681-29f8-454e-83ae-a19c6795af4e.png)
+![会员管理页：店长查看管理本店所有会员信息](docs/images/21-hui-yuan-guan-li.png)
 
 消费统计页：展示本店各类经营数据的统计信息
 
-![消费统计页：展示本店各类经营数据的统计信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/6a69c73c-0fed-4215-8ec8-4eedbc59d66a.png)
+![消费统计页：展示本店各类经营数据的统计信息](docs/images/22-xiao-fei-tong-ji.png)
 
 收银结算页：选择菜品创建订单，完成顾客消费结算
 
-![收银结算页：选择菜品创建订单，完成顾客消费结算](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/39829cb5-0aa9-45f9-8e89-c547e73e5d5c.png)
+![收银结算页：选择菜品创建订单，完成顾客消费结算](docs/images/23-shou-yin-jie-suan.png)
 
 
 ###### 门店收银端
@@ -167,35 +167,35 @@
 
 门店信息管理页：查看维护本门店的基础信息与营业状态
 
-![门店信息管理页：查看维护本门店的基础信息与营业状态](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/8ad88c73-1836-49c2-8bd6-28c0a472de37.png)
+![门店信息管理页：查看维护本门店的基础信息与营业状态](docs/images/16-men-dian-xin-xi-guan-li.png)
 
 门店人员管理页：店长查看和管理本店的人员信息
 
-![门店人员管理页：店长查看和管理本店的人员信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/34b941ff-8ca3-459b-820e-7cf9d28fa2c9.png)
+![门店人员管理页：店长查看和管理本店的人员信息](docs/images/17-men-dian-ren-yuan-guan-li.png)
 
 菜品管理页：店长查看并管理本店可售菜品信息
 
-![菜品管理页：店长查看并管理本店可售菜品信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/3bcde8bd-4120-4ff7-86d0-e6f8282c3c03.png)
+![菜品管理页：店长查看并管理本店可售菜品信息](docs/images/18-cai-pin-guan-li.png)
 
 库存管理页：管理查看本门店原材料库存信息
 
-![库存管理页：管理查看本门店原材料库存信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/6c971324-d5e5-4aaf-89f9-6fee12c207d1.png)
+![库存管理页：管理查看本门店原材料库存信息](docs/images/19-ku-cun-guan-li.png)
 
 订单管理页：店长查看并管理本店所有订单信息
 
-![订单管理页：店长查看并管理本店所有订单信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/2767d7ae-3240-4911-8a19-58ce6240e99f.png)
+![订单管理页：店长查看并管理本店所有订单信息](docs/images/20-ding-dan-guan-li.png)
 
 会员管理页：店长查看管理本店所有会员信息
 
-![会员管理页：店长查看管理本店所有会员信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/4b6cb681-29f8-454e-83ae-a19c6795af4e.png)
+![会员管理页：店长查看管理本店所有会员信息](docs/images/21-hui-yuan-guan-li.png)
 
 消费统计页：展示本店各类经营数据的统计信息
 
-![消费统计页：展示本店各类经营数据的统计信息](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/6a69c73c-0fed-4215-8ec8-4eedbc59d66a.png)
+![消费统计页：展示本店各类经营数据的统计信息](docs/images/22-xiao-fei-tong-ji.png)
 
 收银结算页：选择菜品创建订单，完成顾客消费结算
 
-![收银结算页：选择菜品创建订单，完成顾客消费结算](https://code-graden-server-dev.oss-cn-beijing.aliyuncs.com/2026-04-30/39829cb5-0aa9-45f9-8e89-c547e73e5d5c.png)
+![收银结算页：选择菜品创建订单，完成顾客消费结算](docs/images/23-shou-yin-jie-suan.png)
 
 
 ## 五、主要业务流程
